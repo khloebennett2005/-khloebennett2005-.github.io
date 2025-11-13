@@ -1,0 +1,266 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: purple;
+    color: white;
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    margin: .5rem;
+}
+
+.navbar-links {
+    height: 100%;
+}
+
+.navbar-links ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    list-style: none;
+    display:flex;
+    justify-content:end;
+}
+
+.navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+
+.navbar-links li:hover {
+    background-color: #555;
+}
+
+.toggle-button {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+.welcome{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 5px 5px rgb(210, 206, 206);
+    width:90vw;
+    padding:10px;
+    grid-area: welcome;
+}
+.container{
+    display:grid;
+    grid-template-areas: 
+    "welcome"
+    "contact"
+    "gallery";
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+    margin-top:5px;
+}
+.learn{
+    background-color: purple;
+    color: white;
+    border-radius: 3px;
+    padding: 5px;
+grid-area: contact;
+cursor:pointer;
+transition:background-color 1s ease, transform 0.3s ease;
+}
+.learn:hover, .learn:focus{
+    background-color: rgb(138, 138, 223);;
+}
+
+.contact-form{
+    display:flex;
+    flex-direction: column;
+   box-shadow: 5px 5px 5px 5px rgb(210, 206, 206);
+    width:90vw;
+    padding:10px;
+    margin-top: 15px;
+
+
+}
+.name{
+    display: flex;
+    flex-direction: column;
+    margin-top:15px;
+}
+.yours{
+    padding:7px;
+}
+.yours:hover{
+    border: 2px solid black;
+}
+.Email{
+     display: flex;
+    flex-direction: column;
+    margin-top:15px;
+}
+.mail{
+    padding:7px;
+}
+.mail:hover{
+     border: 2px solid black;
+}
+.subbutn{
+width:100%;
+padding:10px;
+margin-top:15px;
+background-image: linear-gradient(to right, deeppink, purple);
+color:white;
+cursor: pointer;
+transition: all 1s ease;
+}
+@keyframes gradientToBlue {
+  0% {
+    background-image: linear-gradient(to right, deeppink, purple);
+  }
+  25%{
+    background-image: none;
+    background-color: rgb(222, 62, 222);
+  }
+  50% {
+    background-image: none;
+    background-color: rgb(213, 103, 213);
+  }
+  100% {
+    background-image: none;
+    background-color: rgb(238, 154, 238);
+  }
+}
+
+.subbutn:hover, .subbutn:focus{
+animation: gradientToBlue 4s ease-in-out;
+    
+}
+.gallery{
+    grid-area: gallery;
+    padding: 10px;
+    margin-top:5px;
+    gap:15px;
+    box-shadow: 5px 5px 5px 5px rgb(210, 206, 206);
+    width: 90vw;
+}
+
+.gal{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 10px;
+    margin-top:5px;
+    gap:15px;
+}
+
+img{
+    width: 100%;
+    height:200px;
+}
+.gallery img {
+  animation: imageZoomOut 0.5s forwards;
+}
+
+.gallery img:hover {
+  animation: imageZoom 0.5s forwards;
+}
+
+@keyframes imageZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+@keyframes imageZoomOut {
+  from { transform: scale(1.1); }
+  to { transform: scale(1); }
+}
+
+footer{
+    background-color: purple;
+    padding:10px;
+    margin-top:15px;
+    color:white;
+}
+@media (max-width: 800px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar-links {
+        display: none;
+        width: 100%;
+    }
+
+    .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-links ul li {
+        text-align: center;
+    }
+
+    .navbar-links ul li a {
+        padding: .5rem 1rem;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+}
+@media (min-width:768px){
+.container{
+    grid-template-areas: 
+    "welcome contact"
+    "gallery gallery";
+}
+.gallery {
+    margin: 0 auto;
+    margin-top:20px
+}
+.welcome{
+    width: 400px;
+    height:100%;
+    margin-top:15px;
+}
+.contact-form{
+    width:800px;
+    height:100%;
+}
+.gal{
+    grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: 1fr;
+}
+}
